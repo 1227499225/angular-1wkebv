@@ -9,5 +9,5 @@ import { Product } from '../products';
 export class ProductMyalertsComponent {
   @Input() product!: Product;
 
-  @Output() _childClick = new EventEmitter();
+  @Output() childClick = new EventEmitter();
 }

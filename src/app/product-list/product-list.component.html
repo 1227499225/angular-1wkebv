@@ -1,6 +1,6 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of products" class="hide">
   <h3>
     <a [title]="product.name + ' details'">{{ product.name }}</a>
   </h3>
@@ -9,7 +9,23 @@
   <button type="button" (click)="share()">Share</button>
 
   <!-- <app-product-alerts [product]="product" (notify)="onNotify()" (aaaanotify)="_notify()"> </app-product-alerts>-->
-  <!-- <app-product-mualerts [product]="product" (click)="_childClick()"></app-product-mualerts> -->
+  <app-product-myalerts
+    [product]="product"
+    (childClick)="noChildClick(product.price)"
+  ></app-product-myalerts>
+</div>
+<p>测试</p>
+<div *ngFor="let product of products">
+  <h3>
+    <!-- 指令可帮助你自定义 a 元素。在这里，路由或 URL 中包含一个固定的区段 -->
+    <!-- 最后一段则是变量，插入当前产品的 id。比如，id 为 1 的产品的 URL 是 https://getting-started-myfork.stackblitz.io/products/1。 -->
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]"
+    >
+      {{ product.name }}
+    </a>
+  </h3>
 </div>
 <!-- 
 Copyright Google LLC. All Rights Reserved.

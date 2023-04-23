@@ -1,5 +1,5 @@
-<p>product-myalerts works!</p>
-
 <p *ngIf="product && product.price > 700">
-  <button type="button" (click)="_childClick.emit()">Notify Me</button>
+  <button type="button" (click)="childClick.emit()">
+    Notify Me(product-myalerts works! Price：{{ product.price }})
+  </button>
 </p>
